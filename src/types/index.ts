@@ -4,5 +4,5 @@ export interface Book {
   author: string;
   description: string;
   cover: string;
-  publicationDate: Date;
+  publicationDate: string;
 }

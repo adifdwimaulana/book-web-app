@@ -1,10 +1,10 @@
-.book-list {
+.book-container {
   padding: 3rem 0;
 
   .book-content {
     padding: 3rem 0;
-    gap: 3rem 1.5rem;
     grid-template-columns: repeat(3, 1fr);
+    gap: 2rem 1.5rem;
 
     .book-item {
       padding: 3rem 2rem;
@@ -12,6 +12,7 @@
       background-color: var(--white-color);
       box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 15px 0px;
       transition: var(--transition);
+      cursor: pointer;
     }
     .book-item:hover {
       box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
@@ -42,27 +43,3 @@
     }
   }
 }
-
-// @media screen and (min-width: 600px) {
-//   .book-content {
-//     grid-template-columns: repeat(2, 1fr);
-//   }
-// }
-
-// @media screen and (min-width: 992px) {
-//   .book-content {
-//     grid-template-columns: repeat(3, 1fr);
-//   }
-//   .book-item-img img {
-//     max-width: 150px;
-//   }
-// }
-
-// @media screen and (min-width: 992px) {
-//   .book-content {
-//     grid-template-columns: repeat(4, 1fr);
-//   }
-//   .book-item-img img {
-//     max-width: 120px;
-//   }
-// }

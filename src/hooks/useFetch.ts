@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 interface Cache<T> {
   data: T;
@@ -12,9 +12,9 @@ const useFetch = <T>(url: string, options = {}, ttl = 60000) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<unknown>(null);
 
-  const fetchData = async (url: string) => {
+  const fetchData = async () => {
     try {
-      const response = await fetch(url, options);
+      const response = await fetch(url);
       if (!response.ok) throw new Error("Network response was not ok");
       const result = await response.json();
       cache.set(url, { data: result, ttl: Date.now() + ttl });
@@ -38,7 +38,7 @@ const useFetch = <T>(url: string, options = {}, ttl = 60000) => {
       }
     }
 
-    fetchData(url);
+    fetchData();
   }, [url, options]);
 
   return { data, loading, error };
