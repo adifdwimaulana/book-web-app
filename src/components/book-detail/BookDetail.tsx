@@ -4,13 +4,16 @@ import { useNavigate, useParams } from "react-router-dom";
 import arrowLeft from "@/assets/svg/arrow-left-solid.svg";
 import "./book-detail.scss";
 import { format } from "@/utils";
+import Loader from "@/components/Loader";
 
 export default function BookDetail() {
   const { id } = useParams();
-  const { data } = useFetch<Book>(
+  const { data, loading } = useFetch<Book>(
     `https://my-json-server.typicode.com/cutamar/mock/books/${id}`
   );
   const navigate = useNavigate();
+
+  if (loading) return <Loader />;
 
   return (
     <section className="book-details">

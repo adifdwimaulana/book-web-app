@@ -2,11 +2,14 @@ import BookCard from "@/components/book-list/BookCard";
 import useFetch from "@/hooks/useFetch";
 import { Book } from "@/types";
 import "./book-list.scss";
+import Loader from "@/components/Loader";
 
 export default function BookList() {
-  const { data } = useFetch<Book[]>(
+  const { data, loading } = useFetch<Book[]>(
     "https://my-json-server.typicode.com/cutamar/mock/books"
   );
+
+  if (loading) return <Loader />;
 
   return (
     <div className="book-container">
