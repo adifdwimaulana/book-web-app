@@ -1,6 +1,7 @@
 import { Book } from "@/types";
 import { format } from "@/utils";
 import { useNavigate } from "react-router-dom";
+import HeartIcon from "../HeartIcon";
 
 interface Props {
   book: Book;
@@ -9,12 +10,16 @@ interface Props {
 export default function BookCard({ book }: Props) {
   const navigate = useNavigate();
 
+  const handleToggleFavorite = (id: number) => {};
+
   return (
-    <div
-      className="book-item flex flex-column flex-sb"
-      onClick={() => navigate(`/books/${book.id}`)}
-    >
-      <div className="book-item-img">
+    <div className="book-item flex flex-column flex-sb">
+      <HeartIcon isFavorite={true} handleToggle={() => {}} />
+
+      <div
+        className="book-item-img"
+        onClick={() => navigate(`/books/${book.id}`)}
+      >
         <img src={book.cover} alt="cover" />
       </div>
       <div className="book-item-info text-center">
